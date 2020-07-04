@@ -1,0 +1,45 @@
+dubbo:
+  application:
+    name: tsmp-config
+  scan:
+    base-packages: com.icf.tsmp.config.service #dubbo服务发布者所在的包
+  registry:
+    address: nacos://172.0.0.1:8848?backup=172.0.0.2"
+  protocol:
+    name: dubbo
+    port: 20882
+    accesslog: true
+  provider:
+    retries: 0
+    delay: -1
+    validation: true
+    timeout: 5000
+server:
+  port: 8001
+spring:
+  datasource:
+    username:
+    password:
+    url:
+    #使用Hikari数据源
+    type:
+    driver-class-name:
+    hikari:
+      minimum-idle: 1
+      connection-test-query: select 1 from dual
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DssHikaricp
+      max-lifetime: 60000
+      connection-timeout: 30000
+  application:
+    name: tsmp-config
+mybatis:
+  type-aliases-package: com.icf.tsmp.config.model
+  mapper-locations: classpath*:mapping/*Mapper.xml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
