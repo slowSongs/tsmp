@@ -40,10 +40,11 @@ public abstract class  AbstractTsmpGenericService {
         try {
             requestMsg.getJcqqsj().nullFiledValidate();
             serviceConfig = SERVICE_CONFIG_MAP.get(requestMsg.getJcqqsj().getJydm());
-
             if (serviceConfig == null) {
                 throw new AppException(BizCode.RPC_INVOKE_ERR.getErrorCode(),"调用服务配置失败，tranCode："+requestMsg.getJcqqsj().getJydm());
             }
+            // TODO 参数校验
+
         } catch (AppException e) {
             ResponseMsg responseMsg = new ResponseMsg();
             responseMsg.setJcxysj(requestMsg.getJcqqsj());
