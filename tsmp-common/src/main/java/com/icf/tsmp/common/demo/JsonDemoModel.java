@@ -11,7 +11,10 @@ public class JsonDemoModel {
 
     private String value2 = "value2";
 
-    private List<JsonArrayModel> arrayModels = Arrays.asList(new JsonArrayModel());
+    private Integer intVlaue = 1;
+
+    private Integer[] ints = {1, 2, 3};
+  private List<JsonArrayModel> arrayModels = Arrays.asList(new JsonArrayModel());
 
     public JsonDemoInnerModel getJsonDemoInnerModel() {
         return jsonDemoInnerModel;
@@ -43,5 +46,21 @@ public class JsonDemoModel {
 
     public void setArrayModels(List<JsonArrayModel> arrayModels) {
         this.arrayModels = arrayModels;
+    }
+
+    public Integer getIntVlaue() {
+        return intVlaue;
+    }
+
+    public void setIntVlaue(Integer intVlaue) {
+        this.intVlaue = intVlaue;
+    }
+
+    public Integer[] getInts() {
+        return ints;
+    }
+
+    public void setInts(Integer[] ints) {
+        this.ints = ints;
     }
 }
