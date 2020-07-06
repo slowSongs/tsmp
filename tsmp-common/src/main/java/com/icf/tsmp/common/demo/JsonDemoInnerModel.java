@@ -6,6 +6,16 @@ public class JsonDemoInnerModel {
 
     private String args2 = "args2";
 
+    private int[] ints = {1, 2, 3, 4};
+
+    public int[] getInts() {
+        return ints;
+    }
+
+    public void setInts(int[] ints) {
+        this.ints = ints;
+    }
+
     public String getArgs1() {
         return args1;
     }

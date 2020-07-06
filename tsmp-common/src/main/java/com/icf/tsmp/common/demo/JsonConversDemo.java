@@ -1,12 +1,16 @@
 package com.icf.tsmp.common.demo;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.icf.tsmp.common.check.InspceionCheckerChooser;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 
 public class JsonConversDemo {
+
+    @Autowired
+    private static InspceionCheckerChooser chooser;
 
     public static void main(String[] args) {
         JsonDemoModel jsonDemoModel = new JsonDemoModel();
@@ -51,6 +55,9 @@ public class JsonConversDemo {
      * 获取数据库中的规则进行校验
      */
     public static void DbParameterCalibration(Object key, Object value) {
+        //假设数据库查出的校验规则
+        String rule = "NOT_NULL";
+        chooser.choose(rule);
         System.out.println("key:" + key + "，value：" + value);
     }
 }
