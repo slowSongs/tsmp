@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.icf.tsmp.common.TsmpCommonApplication;
 import com.icf.tsmp.common.check.InspceionCheckerChooser;
+import com.icf.tsmp.common.check.InspectionChecker;
 import com.icf.tsmp.common.utils.CheckConstants;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -67,7 +68,11 @@ public class JsonConversDemo {
     public  void DbParameterCalibration(Object key, Object value) {
         //假设数据库查出的校验规则
         String rule = CheckConstants.NOT_NULL;
-        chooser.choose(rule);
+        InspectionChecker chooseResult = chooser.choose(rule);
+        if (null == chooseResult) {
+            throw new RuntimeException("校验规则未录入，暂时无法处理");
+        }
+        chooseResult.check(value);
         System.out.println("key:" + key + "，value：" + value);
     }
 }
